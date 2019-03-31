@@ -14,9 +14,11 @@ export interface WordProps {
 
 export interface WordsListProps {
     words: WordProps[];
+    addWord: () => void;
 }
 
 export interface AllWordsState {
     words: WordProps[];
-    addWord(word: WordProps): void;
+    getAllWords: () => void;
+    addWord: (word: string) => void;
 }

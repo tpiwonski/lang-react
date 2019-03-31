@@ -5,7 +5,7 @@ import Translation from '../Translation';
 import { WordProps } from '../../Interfaces';
 
 
-const Word = observer(
+const Word = //observer(
     (props: WordProps) => {
         return (
             <div>
@@ -19,6 +19,6 @@ const Word = observer(
             </div>
         )
     }
-)
+// )
 
-export default Word;
+export default observer(Word);

@@ -5,16 +5,21 @@ import { WordsListProps, WordProps } from '../../Interfaces';
 import Word from '../Word';
 
 
-const WordsList = observer(
+const WordsList = //observer(
     (props: WordsListProps) => {
         return (
-            <div>{props.words.map((word: WordProps) => {
+            <div>
+            <ul>
+            {props.words.map((word: WordProps) => {
                 return (
-                    <Word key={word.id} {...word}/>
+                    <li key={word.id}><Word {...word}/></li>
                 )
-            })}</div>
+            })}
+            </ul>
+            <button onClick={() => props.addWord()}>Add</button>
+            </div>
         );
     }
-);
+// );
 
-export default WordsList;
+export default observer(WordsList);

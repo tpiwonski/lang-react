@@ -4,16 +4,18 @@ import { strict } from 'assert';
 
 import './App.css';
 import WordContainer from './containers/AllWordsContainer';
-import langStore from './Store';
+// import langStore from './Store';
 import WordsList from './components/WordsList';
-
+import { WordsListProps }  from './Interfaces';
+import wordStore from './stores/WordStore';
 
 class App extends Component {
   render() {
     return (
-      <WordContainer store={langStore}>
-        <WordsList {...langStore}/>
+      <WordContainer store={wordStore}>
+        {(props: WordsListProps) => <WordsList {...props}/>}
       </WordContainer>
+
 
       // <div className="App">
       //   <header className="App-header">

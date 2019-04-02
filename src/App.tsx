@@ -3,37 +3,27 @@ import logo from './logo.svg';
 import { strict } from 'assert';
 
 import './App.css';
-import WordContainer from './containers/AllWordsContainer';
-// import langStore from './Store';
-import WordsList from './components/WordsList';
-import { WordsListProps }  from './Interfaces';
-import wordStore from './stores/WordStore';
+
+import EntryService from './services/EntryService';
+import EntryStore from './stores/EntryStore';
+
+import AllEntriesContainer from './containers/AllEntriesContainer';
+import EntriesList from './components/EntriesList';
+import { EntriesListProps }  from './Interfaces';
+
+import { Entry } from './models/Entry';
+
+let e = new Entry({id: "", text: "", language: "en"});
+
+let entryService = new EntryService();
+let entryStore = new EntryStore(entryService);
 
 class App extends Component {
   render() {
     return (
-      <WordContainer store={wordStore}>
-        {(props: WordsListProps) => <WordsList {...props}/>}
-      </WordContainer>
-
-
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.tsx</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      //   <Foo/>
-      // </div>
+      <AllEntriesContainer store={entryStore}>
+        {(props: EntriesListProps) => <EntriesList {...props}/>}
+      </AllEntriesContainer>
     );
   }
 }

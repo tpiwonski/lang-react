@@ -1,24 +1,24 @@
 export interface TranslationProps {
     id: string;
-    word: string;
+    text: string;
     language: string;
 }
 
 
-export interface WordProps {
+export interface EntryProps {
     id: string;
-    word: string;
+    text: string;
     language: string;
     translations: TranslationProps[];
 }
 
-export interface WordsListProps {
-    words: WordProps[];
+export interface EntriesListProps {
+    words: EntryProps[];
     addWord: () => void;
 }
 
 export interface AllWordsState {
-    words: WordProps[];
-    getAllWords: () => void;
-    addWord: (word: string) => void;
+    entries: EntryProps[];
+    getAllEntries: () => void;
+    addEntry: (text: string) => void;
 }

@@ -1,34 +1,60 @@
-import { decorate, observable } from 'mobx';
+import { decorate, observable, IObservableArray } from 'mobx';
 
-import { AllWordsState, EntryProps } from '../Interfaces';
+import { Entry, EntryData } from '../types/Entry';
 import EntryService from '../services/EntryService';
 
 
-export class EntryStore implements AllWordsState {
-    entries: EntryProps[] = [];
+export class EntryStore {
+    entries: IObservableArray<Entry> = observable.array([]);
     entryService: EntryService;
 
     constructor(entryService: EntryService) {
         this.entryService = entryService;
+
+        this.loadAllEntries = this.loadAllEntries.bind(this);
+        this.addEntry = this.addEntry.bind(this);
+        this.searchEntries = this.searchEntries.bind(this);
+        this.loadEntries = this.loadEntries.bind(this);
+        this.clearEntries = this.clearEntries.bind(this);
+        this.getEntry = this.getEntry.bind(this);
     }
 
-    getAllEntries() {
-        this.entryService.getAllEntries().then((words: EntryProps[]) => {
-            words.forEach((word: EntryProps) => {
-                this.entries.push(word)
+    loadAllEntries() {
+        this.entryService.getAllEntries().then(this.loadEntries);
+    }
+
+    addEntry(entry: EntryData) {
+        this.entryService.createEntry(entry).
+            then(this.getEntry);
+    }
+
+    getEntry(id: string) {
+        this.entryService.getEntry(id).
+            then((entry: EntryData) => {
+                this.entries.push(new Entry(entry));
             })
-        });
     }
 
-    addEntry(text: string) {
-        this.entryService.addEntry(text).then((entry: EntryProps) => {
-            this.entries.push(entry);
+    searchEntries(text: string) {
+        if (!!text) {
+            this.entryService.searchEntries(text).then(this.loadEntries);
+        }
+    }
+
+    loadEntries(entries: EntryData[]) {
+        this.clearEntries();
+        entries.forEach((entry: EntryData) => {
+            this.entries.push(new Entry(entry))
         })
+    }
+
+    clearEntries() {
+        this.entries.clear();
     }
 }
 
-decorate(EntryStore, {
-    entries: observable
-})
+// decorate(EntryStore, {
+//     entries: observable
+// })
 
 export default EntryStore;

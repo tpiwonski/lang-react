@@ -1,20 +1,24 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import { TranslationProps } from '../../Interfaces';
+import { Translation } from '../../types/Entry';
 
 
-const Translation = (props: TranslationProps) => {
+interface Props {
+    translation: Translation;
+}
+
+const TranslationView = (props: Props) => {
     var style = {
         marginLeft: '10px'
     }
     return (
         <div style={style}>
-            <div>{props.text}</div>
-            <div>{props.language}</div>
+            <div>{props.translation.text}</div>
+            <div>{props.translation.language}</div>
         </div>
     )
 }
 
 
-export default observer(Translation);
+export default observer(TranslationView);

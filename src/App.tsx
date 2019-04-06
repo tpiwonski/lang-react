@@ -9,11 +9,8 @@ import EntryStore from './stores/EntryStore';
 
 import AllEntriesContainer from './containers/AllEntriesContainer';
 import EntriesList from './components/EntriesList';
-import { EntriesListProps }  from './Interfaces';
-
-import { Entry } from './models/Entry';
-
-let e = new Entry({id: "", text: "", language: "en"});
+import EditEntryContainer from './containers/EditEntry';
+import SearchEntriesContainer from './containers/SearchEntries';
 
 let entryService = new EntryService();
 let entryStore = new EntryStore(entryService);
@@ -21,9 +18,13 @@ let entryStore = new EntryStore(entryService);
 class App extends Component {
   render() {
     return (
-      <AllEntriesContainer store={entryStore}>
-        {(props: EntriesListProps) => <EntriesList {...props}/>}
-      </AllEntriesContainer>
+      <React.Fragment>
+        <EditEntryContainer store={entryStore}/>
+        <SearchEntriesContainer entryStore={entryStore}/>
+        <AllEntriesContainer store={entryStore}>
+          {(props) => <EntriesList {...props}/>}
+        </AllEntriesContainer>
+      </React.Fragment>
     );
   }
 }

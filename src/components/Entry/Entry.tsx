@@ -1,18 +1,21 @@
 import React from 'react';
 import { observer } from "mobx-react"
 
-import Translation from '../Translation';
-import { EntryProps } from '../../Interfaces';
+import TranslationView from '../Translation';
+import { Entry } from '../../types/Entry';
 
+export interface Props {
+    entry: Entry;
+}
 
-const Word = (props: EntryProps) => {
+const EntryView = (props: Props) => {
     return (
         <div>
-            <div>{props.text}</div>
-            <div>{props.language}</div>
-            {props.translations.map(translation => {
+            <div>{props.entry.text}</div>
+            <div>{props.entry.language}</div>
+            {props.entry.translations.map(translation => {
                 return (
-                    <Translation key={translation.id} {...translation}/>
+                    <TranslationView key={translation.id} translation={translation}/>
                 )
             })}
         </div>
@@ -20,4 +23,4 @@ const Word = (props: EntryProps) => {
 }
 
 
-export default observer(Word);
+export default observer(EntryView);

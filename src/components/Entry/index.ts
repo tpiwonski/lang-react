@@ -1,4 +1,3 @@
-import Word from './Entry';
+import EntryView from './Entry';
 
-export default Word;
-
+export default EntryView;

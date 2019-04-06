@@ -1,3 +1,3 @@
-import Translation from './Translation';
+import TranslationView from './Translation';
 
-export default Translation;
+export default TranslationView;

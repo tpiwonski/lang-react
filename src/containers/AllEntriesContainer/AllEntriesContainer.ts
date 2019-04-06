@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 
 import { EntryStore } from '../../stores/EntryStore';
-import { EntriesListProps } from '../../Interfaces';
+import { Entry } from '../../types/Entry';
 
+export interface EntriesListProps {
+    entries: Entry[];
+    addEntry: (text: string) => void;
+}
 
-class AllEntriesContainer extends Component<{store: EntryStore, children: (props: EntriesListProps) => any}> {
+interface Props {
+    store: EntryStore;
+    children: (props: EntriesListProps) => any;
+}
+
+class AllEntriesContainer extends Component<Props> {
 
     componentDidMount() {
-        this.props.store.getAllEntries();
+        this.props.store.loadAllEntries();
     }
 
     render() {
         return this.props.children({
-            words: this.props.store.entries, 
-            addWord: () => this.props.store.addEntry("flute")
+            entries: this.props.store.entries,
+            addEntry: (text: string) => this.props.store.addEntry({id: "", text: text, language: "en", translations: []}),
         });
     }
 }

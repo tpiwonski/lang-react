@@ -1,24 +1,28 @@
 import React from 'react';
 import { observer } from "mobx-react"
 
-import { EntriesListProps, EntryProps } from '../../Interfaces';
-import Entry from '../Entry';
+import { Entry } from "../../types/Entry";
+import EntryView from "../Entry";
+
+interface Props {
+    entries: Entry[];
+    addEntry: (text: string) => void;
+}
 
 
-const EntriesList = (props: EntriesListProps) => {
+const EntriesList = (props: Props) => {
     return (
         <div>
-        <ul>
-        {props.words.map((entry: EntryProps) => {
-            return (
-                <li key={entry.id}><Entry {...entry}/></li>
-            )
-        })}
-        </ul>
-        <button onClick={() => props.addWord()}>Add</button>
+            <ul>
+            {props.entries.map((entry: Entry) => {
+                return (
+                    <li key={entry.id}><EntryView entry={entry}/></li>
+                )
+            })}
+            </ul>
+            {/* <button onClick={() => props.addEntry((new Date()).toString())}>Add</button> */}
         </div>
     );
 }
-
 
 export default observer(EntriesList);

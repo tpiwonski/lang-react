@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import { Translation } from '../../types/Entry';
+import { Translation } from '../../../../types/Entry';
 
 
 interface Props {

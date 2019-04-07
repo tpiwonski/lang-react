@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { EntryStore } from '../../stores/EntryStore';
-import { Entry } from '../../types/Entry';
+import { EntryStore } from '../../../../stores/EntryStore';
+import { Entry } from '../../../../types/Entry';
 
 export interface EntriesListProps {
     entries: Entry[];

@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchEntries from '../../components/SearchEntries';
-import EntryStore from '../../stores/EntryStore';
+import EntryStore from '../../../../stores/EntryStore';
 
 interface Props {
     entryStore: EntryStore;

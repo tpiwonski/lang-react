@@ -2,15 +2,14 @@ import React from 'react';
 import { observer } from "mobx-react"
 
 import { Entry } from "../../types/Entry";
-import EntryView from "../Entry";
+import EntryView from "./components/Entry";
 
 interface Props {
     entries: Entry[];
-    // addEntry: (text: string) => void;
 }
 
 
-const EntriesList = (props: Props) => {
+const EntriesListView = (props: Props) => {
     return (
         <div>
             <ul>
@@ -20,9 +19,8 @@ const EntriesList = (props: Props) => {
                 )
             })}
             </ul>
-            {/* <button onClick={() => props.addEntry((new Date()).toString())}>Add</button> */}
         </div>
     );
 }
 
-export default observer(EntriesList);
+export default observer(EntriesListView);

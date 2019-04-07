@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryData } from '../../types/Entry';
+import { EntryData } from '../../../../types/Entry';
 
 interface Props {
     entryData: EntryData;

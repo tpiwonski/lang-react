@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from "mobx-react"
 
 import TranslationView from '../Translation';
-import { Entry } from '../../types/Entry';
+import { Entry } from '../../../../types/Entry';
 
 export interface Props {
     entry: Entry;

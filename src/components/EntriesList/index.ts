@@ -1,3 +1,3 @@
-import EntriesList from './EntriesList';
+import EntriesListView from './EntriesList';
 
-export default EntriesList;
+export default EntriesListView;

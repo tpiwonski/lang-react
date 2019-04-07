@@ -8,10 +8,10 @@ import './App.css';
 import EntryService from './services/EntryService';
 import EntryStore from './stores/EntryStore';
 
-import AllEntriesContainer from './containers/AllEntriesContainer';
-import EntriesList from './components/EntriesList';
-import EditEntryContainer from './containers/EditEntry';
-import SearchEntriesContainer from './containers/SearchEntries';
+import AllEntriesContainer from './pages/All';
+import EditEntryContainer from './pages/Add';
+import SearchEntriesContainer from './pages/Search';
+import EntriesListView from './components/EntriesList';
 
 let entryService = new EntryService();
 let entryStore = new EntryStore(entryService);
@@ -39,7 +39,7 @@ class App extends Component {
             <Route path="/add" render={props => <EditEntryContainer {...props} store={entryStore}/>}/>
             <Route path="/all" render={props => <AllEntriesContainer {...props} store={entryStore}/>}/>
           </Switch>
-          <EntriesList entries={entryStore.entries}/>
+          <EntriesListView entries={entryStore.entries}/>
         </Router>
       </React.Fragment>
     );

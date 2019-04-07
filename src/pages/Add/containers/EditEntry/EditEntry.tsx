@@ -1,6 +1,6 @@
 import React from 'react';
-import { EntryData, newEntryData, TranslationData, newTranslationData } from '../../types/Entry';
-import EntryStore from '../../stores/EntryStore';
+import { EntryData, newEntryData, TranslationData, newTranslationData } from '../../../../types/Entry';
+import EntryStore from '../../../../stores/EntryStore';
 import EditEntry from '../../components/EditEntry';
 
 interface Props {

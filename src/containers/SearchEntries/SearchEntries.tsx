@@ -22,6 +22,10 @@ class SearchEntriesContainer extends React.Component<Props, State> {
         this.handleSearch = this.handleSearch.bind(this);
     }
 
+    componentDidMount() {
+        this.props.entryStore.clearEntries();
+    }
+
     handleTextChange(text: string) {
         this.setState({
             text: text

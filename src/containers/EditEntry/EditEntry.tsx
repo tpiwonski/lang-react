@@ -24,6 +24,10 @@ class EditEntryContainer extends React.Component<Props, State> {
         this.handleSave = this.handleSave.bind(this);
     }
 
+    componentDidMount() {
+        this.props.store.clearEntries();
+    }
+
     handleTextChange(text: string) {
         console.log(text);
         this.setState((state) => {

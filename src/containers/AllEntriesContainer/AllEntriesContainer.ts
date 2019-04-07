@@ -5,12 +5,12 @@ import { Entry } from '../../types/Entry';
 
 export interface EntriesListProps {
     entries: Entry[];
-    addEntry: (text: string) => void;
+    // addEntry: (text: string) => void;
 }
 
 interface Props {
     store: EntryStore;
-    children: (props: EntriesListProps) => any;
+    // children: (props: EntriesListProps) => any;
 }
 
 class AllEntriesContainer extends Component<Props> {
@@ -20,10 +20,11 @@ class AllEntriesContainer extends Component<Props> {
     }
 
     render() {
-        return this.props.children({
-            entries: this.props.store.entries,
-            addEntry: (text: string) => this.props.store.addEntry({id: "", text: text, language: "en", translations: []}),
-        });
+        return null;
+    //     return this.props.children({
+    //         entries: this.props.store.entries,
+    //         // addEntry: (text: string) => this.props.store.addEntry({id: "", text: text, language: "en", translations: []}),
+    //     });
     }
 }
 

@@ -6,7 +6,7 @@ import EntryView from "../Entry";
 
 interface Props {
     entries: Entry[];
-    addEntry: (text: string) => void;
+    // addEntry: (text: string) => void;
 }
 
 

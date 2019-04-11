@@ -9,7 +9,7 @@ interface Props {
 }
 
 
-const EntriesListView = (props: Props) => {
+const EntryListView = (props: Props) => {
     return (
         <div>
             <ul>
@@ -23,4 +23,4 @@ const EntriesListView = (props: Props) => {
     );
 }
 
-export default observer(EntriesListView);
+export default observer(EntryListView);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { EntryData, newEntryData, TranslationData, newTranslationData } from '../../../../types/Entry';
 import EntryStore from '../../../../stores/EntryStore';
-import EditEntry from '../../components/EditEntry';
+import EntryEdit from '../../components/EntryEdit';
 
 interface Props {
     store: EntryStore;
@@ -11,7 +11,7 @@ interface State {
     entryData: EntryData;
 }
 
-class EditEntryContainer extends React.Component<Props, State> {
+class EntryEditContainer extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         
@@ -57,7 +57,7 @@ class EditEntryContainer extends React.Component<Props, State> {
 
     render() {
         return (
-            <EditEntry
+            <EntryEdit
                 entryData={this.state.entryData}
                 onTextChange={this.handleTextChange}
                 onTranslationsChange={this.handleTranslationsChange} 
@@ -67,4 +67,4 @@ class EditEntryContainer extends React.Component<Props, State> {
     }
 }
 
-export default EditEntryContainer;
+export default EntryEditContainer;

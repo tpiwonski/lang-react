@@ -1,3 +1,3 @@
-import EditEntry from './containers/EditEntry';
+import EntryEditContainer from './containers/EntryEdit';
 
-export default EditEntry;
+export default EntryEditContainer;

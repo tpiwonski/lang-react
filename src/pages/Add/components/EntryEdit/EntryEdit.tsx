@@ -8,7 +8,7 @@ interface Props {
     onSave: () => void;
 }
 
-class EditEntry extends React.Component<Props> {
+class EntryEdit extends React.Component<Props> {
     constructor(props: Props) {
         super(props);
         this.handleTextChange = this.handleTextChange.bind(this);
@@ -50,4 +50,4 @@ class EditEntry extends React.Component<Props> {
     }
 }
 
-export default EditEntry;
+export default EntryEdit;

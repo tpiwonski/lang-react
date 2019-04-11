@@ -13,7 +13,7 @@ interface Props {
     // children: (props: EntriesListProps) => any;
 }
 
-class AllEntriesContainer extends Component<Props> {
+class AllEntryContainer extends Component<Props> {
 
     componentDidMount() {
         this.props.store.loadAllEntries();
@@ -28,4 +28,4 @@ class AllEntriesContainer extends Component<Props> {
     }
 }
 
-export default AllEntriesContainer;
+export default AllEntryContainer;

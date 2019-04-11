@@ -8,10 +8,10 @@ import './App.css';
 import EntryService from './services/EntryService';
 import EntryStore from './stores/EntryStore';
 
-import AllEntriesContainer from './pages/All';
-import EditEntryContainer from './pages/Add';
-import SearchEntriesContainer from './pages/Search';
-import EntriesListView from './components/EntriesList';
+import AllEntryContainer from './pages/All';
+import EntryEditContainer from './pages/Add';
+import EntrySearchContainer from './pages/Search';
+import EntryListView from './components/EntryList';
 
 let entryService = new EntryService();
 let entryStore = new EntryStore(entryService);
@@ -35,11 +35,11 @@ class App extends Component {
             </ul>
           </nav>
           <Switch>
-            <Route exact path="/" render={props => <SearchEntriesContainer {...props} entryStore={entryStore}/>}/>
-            <Route path="/add" render={props => <EditEntryContainer {...props} store={entryStore}/>}/>
-            <Route path="/all" render={props => <AllEntriesContainer {...props} store={entryStore}/>}/>
+            <Route exact path="/" render={props => <EntrySearchContainer {...props} entryStore={entryStore}/>}/>
+            <Route path="/add" render={props => <EntryEditContainer {...props} store={entryStore}/>}/>
+            <Route path="/all" render={props => <AllEntryContainer {...props} store={entryStore}/>}/>
           </Switch>
-          <EntriesListView entries={entryStore.entries}/>
+          <EntryListView entries={entryStore.entries}/>
         </Router>
       </React.Fragment>
     );

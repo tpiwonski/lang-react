@@ -1,3 +1,3 @@
-import AllEntriesContainer from './containers/AllEntriesContainer';
+import AllEntryContainer from './containers/AllEntryContainer';
 
-export default AllEntriesContainer;
+export default AllEntryContainer;

@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchEntries from '../../components/SearchEntries';
+import EntrySearch from '../../components/EntrySearch';
 import EntryStore from '../../../../stores/EntryStore';
 
 interface Props {
@@ -10,7 +10,7 @@ interface State {
     text: string;
 }
 
-class SearchEntriesContainer extends React.Component<Props, State> {
+class EntrySearchContainer extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
@@ -38,7 +38,7 @@ class SearchEntriesContainer extends React.Component<Props, State> {
 
     render() {
         return (
-            <SearchEntries
+            <EntrySearch
                 onTextChange={this.handleTextChange}
                 onSearch={this.handleSearch}
             />
@@ -46,4 +46,4 @@ class SearchEntriesContainer extends React.Component<Props, State> {
     }
 }
 
-export default SearchEntriesContainer;
+export default EntrySearchContainer;

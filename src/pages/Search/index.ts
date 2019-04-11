@@ -1,3 +1,3 @@
-import SearchEntries from './containers/SearchEntries';
+import EntrySearchContainer from './containers/EntrySearch';
 
-export default SearchEntries;
+export default EntrySearchContainer;

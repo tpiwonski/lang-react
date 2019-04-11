@@ -5,7 +5,7 @@ interface Props {
     onSearch: () => void;
 }
 
-class SearchEntries extends React.Component<Props> {
+class EntrySearch extends React.Component<Props> {
     constructor(props: Props) {
         super(props);
 
@@ -38,4 +38,4 @@ class SearchEntries extends React.Component<Props> {
     }
 }
 
-export default SearchEntries;
+export default EntrySearch;

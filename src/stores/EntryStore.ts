@@ -1,4 +1,4 @@
-import { decorate, observable, IObservableArray } from 'mobx';
+import { decorate, observable, IObservableArray, computed } from 'mobx';
 
 import { Entry, EntryData } from '../types/Entry';
 import EntryService from '../services/EntryService';
@@ -51,10 +51,14 @@ export class EntryStore {
     clearEntries() {
         this.entries.clear();
     }
+
+    get entriesCount() {
+        return this.entries.length;
+    }
 }
 
-// decorate(EntryStore, {
-//     entries: observable
-// })
+decorate(EntryStore, {
+    entriesCount: computed
+})
 
 export default EntryStore;

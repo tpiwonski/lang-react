@@ -1,5 +1,6 @@
 import React from 'react';
 import { EntryData } from '../../../../types/Entry';
+import withEntryEditContainer from '../../containers/EntryEdit';
 
 interface Props {
     entryData: EntryData;
@@ -21,7 +22,7 @@ class EntryEdit extends React.Component<Props> {
     }
 
     handleTranslationsChange(e: any) {
-        let re = /\s*(?:,|$)\s*/;
+        let re = /\s*(?:,)\s*/;
         let translations = e.target.value.split(re);
         this.props.onTranslationsChange(translations);
     }
@@ -50,4 +51,4 @@ class EntryEdit extends React.Component<Props> {
     }
 }
 
-export default EntryEdit;
+export default withEntryEditContainer(EntryEdit);

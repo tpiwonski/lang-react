@@ -1,5 +1,7 @@
 import React from 'react';
 
+import withEntrySearchContainer from '../../containers/EntrySearch';
+
 interface Props {
     onTextChange: (text: string) => void;
     onSearch: () => void;
@@ -38,4 +40,4 @@ class EntrySearch extends React.Component<Props> {
     }
 }
 
-export default EntrySearch;
+export default withEntrySearchContainer(EntrySearch);

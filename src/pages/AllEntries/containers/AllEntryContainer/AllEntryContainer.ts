@@ -9,14 +9,14 @@ export interface EntriesListProps {
 }
 
 interface Props {
-    store: EntryStore;
+    entryStore: EntryStore;
     // children: (props: EntriesListProps) => any;
 }
 
 class AllEntryContainer extends Component<Props> {
 
     componentDidMount() {
-        this.props.store.loadAllEntries();
+        this.props.entryStore.loadAllEntries();
     }
 
     render() {
